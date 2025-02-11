@@ -47,7 +47,7 @@
     })
     .then(response => response.json())
     .then(data => {
-      alert(data);
+      console.log(data);
 	    alert(data["text"]);
     })
     .catch(error => {
