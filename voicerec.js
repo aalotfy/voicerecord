@@ -48,7 +48,7 @@
     .then(response => response.json())
     .then(data => {
       alert(data);
-	    alert(data.text);
+	    alert(data["text"]);
     })
     .catch(error => {
         console.error("Error uploading audio:", error);
