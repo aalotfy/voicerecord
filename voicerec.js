@@ -1,4 +1,3 @@
-<script>
 
 
   let recorder;
@@ -67,4 +66,3 @@
       console.error('Error getting transcription:', error);
     });
   }
-</script>
