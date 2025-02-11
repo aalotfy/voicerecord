@@ -47,7 +47,8 @@
     })
     .then(response => response.json())
     .then(data => {
-        console.log("API Response:", data); // Handle the API response here (e.g., transcriptions)
+      alert(data);
+	    alert(data.text);
     })
     .catch(error => {
         console.error("Error uploading audio:", error);
