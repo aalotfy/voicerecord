@@ -23,9 +23,36 @@
       audioPlayer.src = audioURL;
       // Convert audio to Blob (for uploading)
       let audioBlob = recorder.getBlob();
-      uploadAudioToAPI(audioBlob);
+      uploadAudio(audioBlob);
     });
   };
+
+ function uploadAudio(audioBlob) {
+    const apiUrl = "https://api-inference.huggingface.co/models/openai/whisper-large-v3";
+    
+    // Create a FormData object to send the file as multipart/form-data
+    const formData = new FormData();
+    formData.append("file", audioBlob, "audio.wav"); // Assuming the audio is in WAV format
+
+    // Set up the request headers
+    const headers = {
+        "Authorization": "Bearer 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",
+    };
+
+    // Set up the fetch request to upload the audio file
+    fetch(apiUrl, {
+        method: "POST",
+        headers: headers,
+        body: formData, // Send the FormData containing the audio file
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("API Response:", data); // Handle the API response here (e.g., transcriptions)
+    })
+    .catch(error => {
+        console.error("Error uploading audio:", error);
+    });
+}
 
   function uploadAudioToAPI(audioBlob) {
     let formData = new FormData();
