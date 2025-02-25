@@ -32,7 +32,7 @@
     
     // Create a FormData object to send the file as multipart/form-data
     const formData = new FormData();
-    formData.append("file", audioBlob, "audio.ogg"); // Assuming the audio is in WAV format
+    formData.append("file", audioBlob); // Assuming the audio is in WAV format
 
     // Set up the request headers
     const headers = {
