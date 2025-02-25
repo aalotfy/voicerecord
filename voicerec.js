@@ -9,7 +9,7 @@
       .then(function (stream) {
         recorder = new RecordRTC(stream, {
           type: 'audio',
-          mimeType: 'audio/wav',
+          mimeType: 'audio/mp3',
         });
         recorder.startRecording();
         document.getElementById('stopButton').disabled = false;
@@ -33,7 +33,7 @@
     // Create a FormData object to send the file as multipart/form-data
     const formData = new FormData();
     formData.append("file", audioBlob); // Assuming the audio is in WAV format
-
+   console.log(audioBlob);
     // Set up the request headers
     const headers = {
         "Authorization": "Bearer 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",
